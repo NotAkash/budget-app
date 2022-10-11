@@ -26,6 +26,7 @@ export default function BudgetCard( { name, amount, max, gray } ) {
             variant={getProgressBarVariant(amount, max)}
             min={0}
             max={max}
+            
             now={amount}
             />
 
