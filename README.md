@@ -6,4 +6,5 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 Budgetting App built using React as front end and MongoDB as backend.
 
-Currently focussing on front end. V2 will contain MongoDB codebase.
+Currently focussing on front end. 
+V2 will contain MongoDB codebase.
