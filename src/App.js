@@ -3,10 +3,10 @@ import { Button, Stack } from 'react-bootstrap';
 import Container from "react-bootstrap/Container"
 import AddBudgetModal from './components/AddBudgetModal';
 import BudgetCard from './components/BudgetCard';
-
-
+import {useBudgets } from './contexts/BudgetsContext'
 function App() {
   const [ showAddBudgetModal, setShowAddBudgetModal] = useState(false)
+  const { budgets, getBudgetExpenses } = useBudgets()
   return (
   <>
     <Container className='my-4'>
@@ -20,15 +20,18 @@ function App() {
           gridTemplateColumns: "repeat(auto-fill, minmax(300px,1fr))", 
           gap: "1rem", 
           alignItems: "flex-start",}}>
+          {budgets.map(budget => {
+            const amount = getBudgetExpenses(budget.id).reduce((total,expense)=> 
+            total+expense.amount, 0)
+            return(
             <BudgetCard 
-            name="Entertainment" 
-            amount={200} 
-            max={1000}x
-            gray
-            >
-
-            </BudgetCard>
-        
+              key={budget.id}
+              name={budget.name} 
+              amount={amount} 
+              max={budget.max}
+            />
+            )
+          })}        
         </div>
         
     </Container>
