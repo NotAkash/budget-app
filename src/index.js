@@ -10,5 +10,7 @@ root.render(
     <BudgetsProvider>
       <App />
     </BudgetsProvider>
-  </React.StrictMode>
+  </React.StrictMode>,
+  document.getElementById("root")
+
 );
