@@ -2,10 +2,15 @@ import React, {useState} from "react";
 import { Button, Stack } from 'react-bootstrap';
 import Container from "react-bootstrap/Container"
 import AddBudgetModal from './components/AddBudgetModal';
+import AddExpenseModal from './components/AddBudgetModal';
 import BudgetCard from './components/BudgetCard';
 import {useBudgets } from './contexts/BudgetsContext'
 function App() {
   const [ showAddBudgetModal, setShowAddBudgetModal] = useState(false)
+  const [ showAddExpenseModal, setShowAddExpenseModal] = useState(false)
+
+  const [addExpenseModalBudgetId] = useState()
+
   const { budgets, getBudgetExpenses } = useBudgets()
   return (
   <>
@@ -13,7 +18,7 @@ function App() {
       <Stack direction="horizontal" gap="3" className='mb-4'>
         <h1 className="me-auto">Budgets</h1>
         <Button variant='primary' onClick={()=> setShowAddBudgetModal(true)}>Add Budget</Button>
-        <Button variant='outline-primary'>Add Expense</Button>
+        <Button variant='outline-primary'onClick={()=> setShowAddExpenseModal(true)}>Add Expense</Button>
         </Stack>
         <div style={{ 
           display:"grid", 
@@ -37,6 +42,9 @@ function App() {
     </Container>
     <AddBudgetModal show={showAddBudgetModal} handleClose={() => 
       setShowAddBudgetModal(false)}/>
+    <AddExpenseModal show={showAddExpenseModal} defaultBudgetId={addExpenseModalBudgetId}
+        handleClose={() => setShowAddExpenseModal(false)}
+      />
   </>
   )
 }
