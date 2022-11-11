@@ -26,7 +26,7 @@ export default function AddExpenseModal({show, handleClose, defaultBudgetId}) {
             <Modal.Body>
               <Form.Group className="mb-3" controlId="description">
                 <Form.Label>Description</Form.Label>
-                <Form.Control ref={description} type="text" required />
+                <Form.Control ref={descriptionRef} type="text" required />
               </Form.Group>
               <Form.Group className="mb-3" controlId="amount">
                 <Form.Label>Amount</Form.Label>

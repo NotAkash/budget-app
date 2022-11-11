@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import { Button, Stack } from 'react-bootstrap';
 import Container from "react-bootstrap/Container"
 import AddBudgetModal from './components/AddBudgetModal';
-import AddExpenseModal from './components/AddBudgetModal';
+import AddExpenseModal from './components/AddExpenseModal';
 import BudgetCard from './components/BudgetCard';
 import {useBudgets } from './contexts/BudgetsContext'
 function App() {
